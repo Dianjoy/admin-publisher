@@ -1,0 +1,29 @@
+{
+  "name": "admin-publisher",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Dianjoy/admin-publisher",
+  "authors": [
+    "Meathill <lujia.zhai@dianjoy.com>"
+  ],
+  "description": "外放渠道后台",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "admin",
+    "panel",
+    "tiger-prawn"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tiger-prawn": "*"
+  }
+}
