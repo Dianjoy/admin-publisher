@@ -3,12 +3,12 @@
  */
 'use strict';
 (function (ns) {
-  ns.API = 'http://ad-diy.com/';
-  ns.UPLOAD = 'http://ad-diy.com/'; // 上传文件的起始路径
+  ns.API = 'http://meathill.mac/dianjoy-publisher/';
+  ns.UPLOAD = 'http://meathill.mac/dianjoy-publisher/'; // 上传文件的起始路径
   ns.path = ''; // 项目路径
   ns.config = {
     login: {
-      welcome: '欢迎使用点乐广告自助平台',
+      welcome: '点乐，领先的智能手机广告平台',
       admin: 'service@dianjoy.com',
       verify: ns.API + 'showimg.php',
       className: 'login'
@@ -16,7 +16,7 @@
   };
 
   // 项目名称，主要用于生成key
-  ns.PROJECT = 'ad-diy';
+  ns.PROJECT = 'publisher';
 
   // 通知的key
   ns.NOTICE_KEY = 'tiger-prawn';
@@ -25,5 +25,8 @@
   ns.startPage = '';
 
   // 启动路径，这个bug终于修了么……
-  ns.BASE = '/tiger-prawn';
+  ns.BASE = '/dev/publisher';
+
+  // 命名空间
+  ns.NAME_SPACE = 'pub';
 }(Nervenet.createNameSpace('tp')));
