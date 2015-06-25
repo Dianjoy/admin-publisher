@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
   <link rel="stylesheet" href="bower_components/morrisjs/morris.css">
+  <link rel="stylesheet" href="bower_components/tiger-prawn/dist/css/screen.min.css">
   <link rel="stylesheet" href="css/screen.css" media="screen">
   <link>
 </head>
@@ -97,7 +98,7 @@
       <label class="pit">您的余额：65/100</label>
       <progress value="65" max="100" class="pit">65%</progress>
     </li>
-    <li><a href="./"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a href="#/"><i class="fa fa-dashboard"></i> 首页</a></li>
     <script type="text/x-handlebars-template">
       {{#each list}}
       <li class="sidebar-nav-item">
@@ -232,6 +233,7 @@
   </div>
 </script>
 
+<iframe id="history-recorder" src="about:blank" class="hide"></iframe>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -247,6 +249,8 @@
 <script src="bower_components/mh-simple-uploader/dist/js/SimpleUploader.min.js"></script>
 <script src="js/config.js"></script>
 <script src="bower_components/tiger-prawn/dist/js/tiger-prawn.min.js"></script>
+<script src="js/router/All.js"></script>
+<script src="js/model/Me.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>

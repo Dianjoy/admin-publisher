@@ -1,7 +1,7 @@
 $(function () {
   // start here
   var context = Nervenet.createContext()
-    , me = new tp.model.Me()
+    , me = new pub.model.Me()
     , body = new tp.view.Body({
       el: 'body',
       model: me
@@ -23,6 +23,7 @@ $(function () {
 
   // routers
   context.createInstance(tp.router.Base);
+  context.createInstance(pub.router.All);
 
   // 验证用户身份
   me.fetch();
