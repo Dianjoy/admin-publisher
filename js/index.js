@@ -11,6 +11,7 @@ $(function () {
   context
     .mapValue('me', me)
     .mapValue('body', body)
+    .mapValue('format', 'YYYY-MM-DD')
     .mapValue('colors', ['#e5412d', '#f0ad4e', '#444', '#888', '#16A085', '#27AE60', '#2980B9', '#8E44AD', '#2C3E50', '#F39C12', '#D35400', '#C0392B', '#BDC3C7', '#ASBESTOS']);
   context
     .inject(me)

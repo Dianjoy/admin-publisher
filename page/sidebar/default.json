@@ -24,31 +24,14 @@
     ]
   },
   {
-    "title": "站点管理",
-    "icon": "sitemap",
-    "sub-id": "sidebar-site",
-    "sub": [
-      {
-        "title": "新建站点",
-        "icon": "plus",
-        "link": "#/new/website/"
-      },
-      {
-        "title": "全部站点",
-        "icon": "list",
-        "link": "#/website/"
-      }
-    ]
-  },
-  {
     "title": "财务管理",
     "icon": "yen",
     "sub-id": "sidebar-finance",
     "sub": [
       {
         "title": "申请汇款",
-        "icon": "envelop",
-        "link": "#/new/apply/"
+        "icon": "envelope",
+        "link": "#/apply/add/"
       },
       {
         "title": "汇款箱单",

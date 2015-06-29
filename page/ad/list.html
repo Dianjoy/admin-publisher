@@ -1,0 +1,74 @@
+<table class="table table-bordered table-striped smart-table" data-url="{{API}}pubs/" data-pagination=".pagination" data-pagesize="20">
+  <thead>
+  <tr>
+    <th>广告名</th>
+    <th>渠道号</th>
+    <th>状态</th>
+    <th>单价</th>
+    <th>上线时间</th>
+    <th>状态更新时间</th>
+    <th>资源</th>
+    <th>安装包大小</th>
+    <th>安装包版本</th>
+    <th>数据反馈形式</th>
+    <th>质量要求</th>
+    <th>有效数据定义方式</th>
+    <th>其它</th>
+  </tr>
+  </thead>
+  <tbody>
+  <script type="text/x-handlebars-template">
+  <tr>
+    <td>{{ad_name}}</td>
+    <td>{{package_id}}</td>
+    <td><span class="label label-{{class}}">{{status}}</span></td>
+    <td>{{out_rmb}}元</td>
+    <td>{{create_date}}</td>
+    <td>{{status_date}}</td>
+    <td>
+        {{#if ad_url}}
+        <a href="{{ad_url}}" class="btn btn-default"><i class="fa fa-download"></i> 安装包</a>
+        {{else}}
+        尚未上传
+        {{/if}}
+        {{#if material_url}}
+        <a href="../{{material_url}}" class="btn btn-default"><i class="fa fa-download"></i> 物料包</a>
+        {{else}}
+        尚未上传
+        {{/if}}
+    </td>
+    <td>{{ad_size}}</td>
+    <td>{{ad_lib}}</td>
+    <td>
+      {{#if advertiser_url}}
+      <a href="{{advertiser_url}}" class="btn btn-default" target="_blank"><i class="fa fa-share-alt"></i> 广告主后台</a><br />
+      账户：{{advertiser_user}}<br />
+      密码：{{advertiser_pwd}}<br />
+      {{else}}
+      {{out_cycle}}
+      {{/if}}
+    </td>
+    <td>{{quality}}</td>
+    <td>{{pick valid_data out_cycle}}</td>
+    <td>{{others}}</td>
+  </tr>
+  </script>
+  </tbody>
+  <tfoot class="waiting">
+  <tr>
+    <td colspan="13"><p align="center"><i class="fa fa-spinner fa-spin fa-2x"></i><br>加载中，请稍候</p></td>
+  </tr>
+  </tfoot>
+</table>
+
+<nav class="pull-right">
+  <ul class="pagination">
+    <script type="text/x-handlebars-template">
+      <li><a href="#/to/{{prev}}"><i class="fa fa-chevron-left"></i></a></li>
+      {{#each pages}}
+      <li class="hidden-xs"><a href="#/to/{{index}}">{{label}}</a></li>
+      {{/each}}
+      <li><a href="#/to/{{next}}"><i class="fa fa-chevron-right"></i></a></li>
+    </script>
+  </ul>
+</nav>
