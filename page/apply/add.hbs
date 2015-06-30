@@ -1,28 +1,20 @@
-<form action="action_publisher.php" method="post" class="form-horizontal">
+<form action="{{API}}apply/" method="post" class="ajax" data-mediator-class="pub.page.CreateApply">
   <legend>申请汇款</legend>
-  <input type="hidden" name="m" value="apply" />
-    {{^no_warning}}
-    <div class="tabbale tabs-below">
-        <div class="img-rounded img-polaroid tab-content" id="dashboard-chart">
-            <div class="tab-pane alert alert-warning active" id="notice">
-                <p>
-                    您当前的基本信息不够完善，暂时不能提现，请先在右上角的基本信息中补充完整后再行提现。
-                </p>
-            </div>
-        </div>
-    </div>
-    {{/no_warning}}
-    {{^interval}}
-    <div class="tabbale tabs-below">
-        <div class="img-rounded img-polaroid tab-content" id="dashboard-chart">
-            <div class="tab-pane alert alert-warning active" id="notice">
-                <p>
-                    本次结算周期您已经申请提现过，请于下次提现周期再申请。
-                </p>
-            </div>
-        </div>
-    </div>
-    {{/interval}}
+  {{#if warning}}
+  <div class="tab-pane alert alert-warning active" id="notice">
+    <p>
+      您当前的基本信息不够完善，暂时不能提现，请先在右上角的基本信息中补充完整后再行提现。
+    </p>
+  </div>
+  {{/if}}
+  {{#if interval}}
+  <div class="tab-pane alert alert-warning active" id="notice">
+    <p>
+      本次结算周期您已经申请提现过，请于下次提现周期再申请。
+    </p>
+  </div>
+  {{/if}}
+  <div class="alert alert-msg" style="display: none"></div>
   <table class="table table-bordered table-striped">
     <tr>
       <td>姓名：</td>
@@ -48,38 +40,29 @@
     </tr>
     <tr>
       <td>可提现余额：</td>
-      <td>{{rmb}}元</td>
-    </tr>
-    <tr>
-      <td>是否提供发票：</td>
-      <td>
-        <div class="input-append">
-            <label class="radio inline">
-              <input type="radio" name="has_invoice" value="0" {{^is_company}}checked="checked"{{/is_company}}/> 不提供(将代扣6%税款)
-            </label>
-            <label class="radio inline">
-              <input type="radio" name="has_invoice" value="1" {{#is_company}}checked="checked"{{/is_company}}/> 提供
-            </label>
-          </div>
-      </td>
+      <td>{{d100 rmb}}元</td>
     </tr>
     <tr>
       <td>提现：</td>
-      <td>
-        <div class="input-append">
-          <input type="number" name="apply" id="apply" required="true" step="any" value="{{rmb}}" class="input-medium" max="{{rmb}}"/>
-          <span class="add-on">元</span>
-          <a href="page/popup/tax-info.md" class="popup">计税规则</a>
+      <td class="form-inline">
+        <div class="input-group">
+          <input type="number" name="apply" step="1" value="{{d100 rmb}}" class="form-control" min="100" max="{{rmb}}" required/>
+          <span class="input-group-addon">元，税后可得&yen;<strong class="text-danger">{{d100 after_tax}}</strong>元</span>
         </div>
+        <a href="page/popup/tax-info.md" class="popup" title="计税规则" data-cancel="关闭">计税规则</a>
         <p class="help-block">
-          请仔细核对以上信息，最多提现为{{rmb}}元。
+          请仔细核对以上信息。最少体现100元，您最多可以提现{{d100 rmb}}元。
         </p>
       </td>
     </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button class="btn btn-primary btn-lg" {{^apply}}disabled{{/apply}}>提交</button>
+        <a href="#/my/profile/" class="ml2e fa fa-edit">修改个人信息</a>
+      </td>
+    </tr>
   </table>
-  <div class="form-actions">
-    <button class="btn btn-primary" type="submit"{{^apply}} disabled="true"{{/apply}}>提交</button>
-  </div>
 </form>  
 
 <div class="well">

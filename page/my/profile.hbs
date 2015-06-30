@@ -1,0 +1,111 @@
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <td>账号</td>
+      <td>可提现余额</td>
+      <td>总收入</td>
+      <td>总提现</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{account}}</td>
+      <td>{{rmb_yuan}}元</td>
+      <td>{{rmb_in_yuan}}元</td>
+      <td>{{rmb_out_yuan}}元</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered table-striped {{pick publisher_type '' 'personal' 'corp'}}">
+  <tr>
+    <th>渠道名称</th>
+    <td><a href="#publisher_name" class="edit">{{publisher_name}}</a></td>
+  </tr>
+  <tr>
+    <th>渠道类型</th>
+    <td>
+      <a href="#publisher_type" class="edit" data-type="select" data-list="#type">{{pick publisher_type '' '个人' '公司'}}</a>
+    </td>
+  </tr>
+  <tr>
+    <th>联系方式</th>
+    <td><a href="#telephone" class="edit">{{telephone}}</a></td>
+  </tr>
+  <tr>
+    <th>QQ</th>
+    <td><a href="#qq" class="edit" data-type="number">{{qq}}</a></td>
+  </tr>
+  <tr>
+    <th>姓名</th>
+    <td><a href="#user_name" class="edit">{{user_name}}</a></td>
+  </tr>
+  <tr class="corp">
+    <th>营业执照扫描件</th>
+    <td>
+      <a class="edit" href="#business_license" data-type="file" data-accept="image/*">
+        {{#if business_license}}<img src="{{business_license}}" class="img-thumbnail">{{/if}}
+      </a>
+      <p class="help-block">
+        为不影响结算，请务必上传贵司清晰的运营执照扫描件。
+      </p>
+    </td>
+  </tr>
+  <tr class="personal">
+    <th>身份证号码</th>
+    <td>
+      <a class="edit" href="#identity_pic" data-type="file" data-accept="image/*">
+        {{#if identity_pic}}<img src="{{identity_pic}}" class="img-thumbnail">{{/if}}
+      </a>
+      <p class="help-block">
+        为不影响结算，请务必上传本人清晰的身份证正/反面扫描件。
+      </p>
+    </td>
+  </tr>
+  <tr class="personal">
+    <th>身份证扫描件背面</th>
+    <td>
+      <a class="edit" href="#identity_pic_back" data-type="file" data-accept="image/*">
+        {{#if identity_pic_back}}<img src="{{identity_pic_back}}" class="img-thumbnail">{{/if}}
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <th>开户行</th>
+    <td><a href="#bank_name" class="edit">{{bank_name}}</a></td>
+  </tr>
+  <tr>
+    <th>开户行所在省</th>
+    <td>
+      <a href="#province" class="edit" data-type="select">{{province}}</a>
+    </td>
+  </tr>
+  <tr>
+    <th>开户行所在市</th>
+    <td>
+      <a href="#city" class="edit" data-type="select">{{city}}</a>
+    </td>
+  </tr>
+  <tr>
+    <th>具体支行</th>
+    <td><a href="#bank_address" class="edit">{{bank_address}}</a></td>
+  </tr>
+  <tr>
+    <th>银行卡号</th>
+    <td><a href="#card_number" class="edit">{{card_number}}</a></td>
+  </tr>
+  <tr>
+    <th>说明</th>
+    <td><a href="#comment" class="edit" data-type="long-text">{{comment}}</a></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td><button class="btn btn-primary" type="submit">提交</button></td>
+  </tr>
+</table>
+
+<datalist id="type">
+  <option value="1">个人</option>
+  <option value="2">企业</option>
+</datalist>

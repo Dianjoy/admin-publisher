@@ -2,7 +2,8 @@ $(function () {
   // start here
   var context = Nervenet.createContext()
     , me = new pub.model.Me()
-    , body = new tp.view.Body({
+    , profile = new pub.model.Profile()
+    , body = new pub.view.Body({
       el: 'body',
       model: me
     });
@@ -10,6 +11,7 @@ $(function () {
   // map values
   context
     .mapValue('me', me)
+    .mapValue('profile', profile)
     .mapValue('body', body)
     .mapValue('format', 'YYYY-MM-DD')
     .mapValue('colors', ['#e5412d', '#f0ad4e', '#444', '#888', '#16A085', '#27AE60', '#2980B9', '#8E44AD', '#2C3E50', '#F39C12', '#D35400', '#C0392B', '#BDC3C7', '#ASBESTOS']);
