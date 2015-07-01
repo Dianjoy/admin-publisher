@@ -58,7 +58,7 @@
     <tr>
       <td></td>
       <td>
-        <button class="btn btn-primary btn-lg" {{^apply}}disabled{{/apply}}>提交</button>
+        <button class="btn btn-primary btn-lg" {{#if warning}}disabled{{else if interval}}disabled{{/if}}>提交</button>
         <a href="#/my/profile/" class="ml2e fa fa-edit">修改个人信息</a>
       </td>
     </tr>

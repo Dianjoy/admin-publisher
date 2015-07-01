@@ -45,7 +45,9 @@
       this.$body.setFramework('apply', '历史汇款详情');
     },
     showMyProfile: function () {
-      this.$body.load('page/my/profile.hbs', this.$profile);
+      this.$body.load('page/my/profile.hbs', this.$profile, {
+        loader: pub.page.Profile
+      });
       this.$body.setFramework('profile', '个人信息');
     },
     showStatList: function (start, end) {

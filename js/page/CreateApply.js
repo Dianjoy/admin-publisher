@@ -23,7 +23,7 @@
       } else {
         tax = num * 0.8 * 0.4 - 7000;
       }
-      this.$('strong').val(tax);
+      this.$('strong').text(tax);
     },
     successHandler: function () {
       setTimeout(function () {
