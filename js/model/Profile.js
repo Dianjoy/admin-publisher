@@ -14,7 +14,9 @@
       if (options) {
         return json;
       }
-      return _.extend(this.options, json);
+      return _.extend({
+        API: tp.API
+      }, this.options, json);
     }
   });
 }(Nervenet.createNameSpace('pub.model')));

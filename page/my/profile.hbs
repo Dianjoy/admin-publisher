@@ -17,7 +17,7 @@
   </tbody>
 </table>
 
-<form action="{{API}}info/" method="post" enctype="multipart/form-data" class="form-horizontal ajax" id="profile-form">
+<form action="{{API}}info/" method="post" enctype="multipart/form-data" class="form-horizontal model-editor {{#if editing}}hide{{/if}}" id="profile-form">
   <div class="alert alert-msg" style="display: none"></div>
   <fieldset>
     <div class="form-group">
@@ -158,106 +158,103 @@
         <input type="text" name="comment" id="comment" class="form-control" value="{{comment}}"/>
       </div>
     </div>
-    {{^edit}}
     <div class="form-actions col-sm-offset-2">
       <button class="btn btn-primary" type="submit">提交</button>
     </div>
-    {{/edit}}
-    {{#edit}}
-    <div class="alert">
-        <p>您的上一个修改申请还在审核中，暂时不能进行再次修改，请耐心等候，或联系点乐对接商务处理。</p>
-        <p>下表为您上次的修改内容：
-            <a href="action_publisher.php?m=del_edit&id={{id}}" class="btn btn-danger"><i class="icon-remove icon-white"></i> 取消这次申请</a>
-        </p>
-    </div>
-    <table class="table table-bordered table-striped">
-      <tr>
-        <td>渠道名称</td>
-        <td>{{publisher_name}}</td>
-      </tr>
-      <tr>
-        <td>渠道类型</td>
-        <td>{{publisher_type}}</td>
-      </tr>
-      <tr>
-        <td>联系方式</td>
-        <td>{{telephone}}</td>
-      </tr>
-      <tr>
-        <td>QQ</td>
-        <td>{{qq}}</td>
-      </tr>
-      <tr>
-        <td>姓名</td>
-        <td>{{user_name}}</td>
-      </tr>
-      <tr class="{{#equal publisher_type 2}}hide{{/equal}}">
-        <td>身份证号码</td>
-        <td>{{identity}}</td>
-      </tr>
-      <tr>
-        <td>开户行</td>
-        <td>{{bank_name}}</td>
-      </tr>
-      <tr>
-        <td>开户行所在省</td>
-        <td>{{province}}</td>
-      </tr>
-      <tr>
-        <td>开户行所在市</td>
-        <td>{{city}}</td>
-      </tr>
-      <tr>
-        <td>具体支行</td>
-        <td>{{bank_address}}</td>
-      </tr>
-      <tr>
-        <td>银行卡号</td>
-        <td>{{card_number}}</td>
-      </tr>
-      <tr>
-        <td>说明</td>
-        <td>{{comment}}</td>
-      </tr>
-      <tr class="{{#equal publisher_type 2}}hide{{/equal}}">
-        <td>身份证扫描件正面</td>
-        <td>
-          {{#if identity_pic}}
-          <img class="preview img-polaroid" alt="身份证扫描件正面" src="{{UPLOAD}}{{identity_pic}}" height="40" />
-          {{else}}
-          没有上传新图片
-          {{/if}}
-        </td>
-      </tr>
-      <tr class="{{#equal publisher_type 2}}hide{{/equal}}">
-        <td>身份证扫描件反面</td>
-        <td>
-          {{#if identity_pic_back}}
-          <img class="preview img-polaroid" alt="身份证扫描件反面" src="{{UPLOAD}}{{identity_pic_back}}" height="40" />
-          {{else}}
-          没有上传新图片
-          {{/if}}
-        </td>
-      </tr>
-      <tr class="{{#equal publisher_type 1}}hide{{/equal}}">
-        <td>营业执照扫描件</td>
-        <td>
-          {{#if business_license}}
-          <img class="preview img-polaroid" alt="营业执照扫描件" src="{{UPLOAD}}{{business_license}}" height="40" />
-          {{else}}
-          没有上传新图片
-          {{/if}}
-        </td>
-      </tr>
-      <tr>
-        <td>修改时间</td>
-        <td>{{create_time}}</td>
-      </tr>
-    </table>
-    {{/edit}}
   </fieldset>
 </form>
 
-<div id="proper">
-  <img id="im" class="img-polaroid" src="" />
+{{#if editing}}
+<div class="alert alert-warning last-apply">
+  <p>您的上一个修改申请还在审核中，暂时不能进行再次修改，请耐心等候，或联系点乐对接商务处理。</p>
+  <p>下表为您上次的修改内容：
+      <button type="button" class="btn btn-danger cancel-button"><i class="fa fa-times"></i> 撤消这次申请</button>
+  </p>
 </div>
+{{#with editing}}
+<table class="table table-bordered table-striped last-apply">
+  <tr>
+    <td>渠道名称</td>
+    <td>{{publisher_name}}</td>
+  </tr>
+  <tr>
+    <td>渠道类型</td>
+    <td>{{publisher_type}}</td>
+  </tr>
+  <tr>
+    <td>联系方式</td>
+    <td>{{telephone}}</td>
+  </tr>
+  <tr>
+    <td>QQ</td>
+    <td>{{qq}}</td>
+  </tr>
+  <tr>
+    <td>姓名</td>
+    <td>{{user_name}}</td>
+  </tr>
+  <tr class="{{#equal publisher_type 2}}hide{{/equal}}">
+    <td>身份证号码</td>
+    <td>{{identity}}</td>
+  </tr>
+  <tr>
+    <td>开户行</td>
+    <td>{{bank_name}}</td>
+  </tr>
+  <tr>
+    <td>开户行所在省</td>
+    <td>{{province}}</td>
+  </tr>
+  <tr>
+    <td>开户行所在市</td>
+    <td>{{city}}</td>
+  </tr>
+  <tr>
+    <td>具体支行</td>
+    <td>{{bank_address}}</td>
+  </tr>
+  <tr>
+    <td>银行卡号</td>
+    <td>{{card_number}}</td>
+  </tr>
+  <tr>
+    <td>说明</td>
+    <td>{{comment}}</td>
+  </tr>
+  <tr class="{{#equal publisher_type 2}}hide{{/equal}}">
+    <td>身份证扫描件正面</td>
+    <td>
+      {{#if identity_pic}}
+      <img class="preview img-polaroid" alt="身份证扫描件正面" src="{{UPLOAD}}{{identity_pic}}" height="40" />
+      {{else}}
+      没有上传新图片
+      {{/if}}
+    </td>
+  </tr>
+  <tr class="{{#equal publisher_type 2}}hide{{/equal}}">
+    <td>身份证扫描件反面</td>
+    <td>
+      {{#if identity_pic_back}}
+      <img class="preview img-polaroid" alt="身份证扫描件反面" src="{{UPLOAD}}{{identity_pic_back}}" height="40" />
+      {{else}}
+      没有上传新图片
+      {{/if}}
+    </td>
+  </tr>
+  <tr class="{{#equal publisher_type 1}}hide{{/equal}}">
+    <td>营业执照扫描件</td>
+    <td>
+      {{#if business_license}}
+      <img class="preview img-polaroid" alt="营业执照扫描件" src="{{UPLOAD}}{{business_license}}" height="40" />
+      {{else}}
+      没有上传新图片
+      {{/if}}
+    </td>
+  </tr>
+  <tr>
+    <td>修改时间</td>
+    <td>{{create_time}}</td>
+  </tr>
+</table>
+{{/with}}
+{{/if}}
