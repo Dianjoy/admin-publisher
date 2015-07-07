@@ -46,7 +46,7 @@
     },
     form_successHandler: function () {
       this.$('form').find('input,select,button').prop('disabled', true);
-      this.$('label.btn').addClass('disabled');
+      this.$('label.btn,.select-button label').addClass('disabled');
     },
     province_changeHandler: function (event) {
       var province = event.target.selectedIndex;

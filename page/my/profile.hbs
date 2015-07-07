@@ -56,13 +56,13 @@
     <div class="form-group corp {{#equal publisher_type 1}}hide{{/equal}}">
       <label class="control-label col-sm-2" for="business_license">营业执照扫描件</label>
       <div class="col-sm-6 uploader" data-url="{{API}}file/" data-accept="image/*" data-name="pic_path">
+        <div class="su-placeholder" data-initial="请上传JPG文件，以能看清内容为宜。" data-progress="上传文件中..">
         {{#if business_license}}
           <div class="su-item">
             <img src="{{UPLOAD}}{{business_license}}" class="img-thumbnail">
           </div>
-        {{else}}
-          <div class="su-placeholder" data-initial="请上传JPG文件，以能看清内容为宜。" data-progress="上传图片中.."></div>
         {{/if}}
+        </div>
         <label class="btn btn-info btn-block su-upload-button">
           <i class="fa fa-image"></i> 选择营业执照扫描件并上传。
         </label>
@@ -81,13 +81,13 @@
     <div class="form-group personal {{#equal publisher_type 2}}hide{{/equal}}">
       <label class="control-label col-sm-2" for="identity_pic">身份证扫描件正面</label>
       <div class="col-sm-6 uploader" data-url="{{API}}file/" data-accept="image/*" data-name="pic_path">
+        <div class="su-placeholder" data-initial="请上传JPG文件，以能看清内容为宜。" data-progress="上传图片中..">
         {{#if identity_pic}}
-          <div class="su-item">
-            <img src="{{UPLOAD}}{{identity_pic}}" class="img-thumbnail">
-          </div>
-        {{else}}
-          <div class="su-placeholder" data-initial="请上传JPG文件，以能看清内容为宜。" data-progress="上传图片中.."></div>
+            <div class="su-item">
+              <img src="{{UPLOAD}}{{identity_pic}}" class="img-thumbnail">
+            </div>
         {{/if}}
+        </div>
         <label class="btn btn-info btn-block su-upload-button">
           <i class="fa fa-image"></i> 选择身份证扫描件正面件并上传。
         </label>
@@ -100,13 +100,13 @@
     <div class="form-group personal {{#equal publisher_type 2}}hide{{/equal}}">
       <label class="control-label col-sm-2" for="identity_pic_back">身份证扫描件背面</label>
       <div class="col-sm-6 uploader" data-url="{{API}}file/" data-accept="image/*" data-name="pic_path">
+        <div class="su-placeholder" data-initial="请上传JPG文件，以能看清内容为宜。" data-progress="上传图片中..">
         {{#if identity_pic_back}}
-          <div class="su-item">
-            <img src="{{UPLOAD}}{{identity_pic_back}}" class="img-thumbnail">
-          </div>
-        {{else}}
-          <div class="su-placeholder" data-initial="请上传JPG文件，以能看清内容为宜。" data-progress="上传图片中.."></div>
+            <div class="su-item">
+              <img src="{{UPLOAD}}{{identity_pic_back}}" class="img-thumbnail">
+            </div>
         {{/if}}
+        </div>
         <label class="btn btn-info btn-block su-upload-button">
           <i class="fa fa-image"></i> 选择身份证扫描件反面件并上传。
         </label>
