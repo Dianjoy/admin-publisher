@@ -6,11 +6,11 @@
   ns.CreateApply = Backbone.View.extend({
     events: {
       'change [name=apply]': 'apply_changeHandler',
-      'textInput [name=apply]': 'apply_changeHandler',
+      'textInput [name=apply]': 'apply_inputHandler',
       'success': 'successHandler'
     },
-    apply_changeHandler: function (event) {
-      var num = event.target.value
+    calculate: function () {
+      var num = this.$('[name=apply]').val()
         , tax = 0;
       if (num <= 800) {
         tax = 0;
@@ -23,7 +23,17 @@
       } else {
         tax = num * 0.8 * 0.4 - 7000;
       }
-      this.$('strong').text(tax);
+      console.log(num, tax);
+      this.$('strong').text(num - tax);
+    },
+    apply_changeHandler: function (event) {
+      this.calculate();
+    },
+    apply_inputHandler: function (event) {
+      var self = this;
+      setTimeout(function () {
+        self.calculate();
+      }, 50);
     },
     successHandler: function () {
       setTimeout(function () {
