@@ -1,12 +1,12 @@
 <form action="{{API}}apply/" method="post" class="{{#if applying}}fake{{else}}ajax{{/if}}" data-mediator-class="pub.page.CreateApply">
   <legend>申请汇款</legend>
-  {{#if whole_info}}
+  {{#unless whole_info}}
   <div class="tab-pane alert alert-warning active" id="notice">
     <p>
       您当前的基本信息不够完善，暂时不能提现，请先在右上角的基本信息中补充完整后再行提现。
     </p>
   </div>
-  {{/if}}
+  {{/unless}}
   {{#if applying}}
   <div class="tab-pane alert alert-warning active" id="notice">
     <p>
@@ -46,7 +46,7 @@
       <td>提现：</td>
       <td class="form-inline">
         <div class="input-group">
-          <input type="number" name="apply" step="100" value="{{d100 rmb}}" class="form-control" min="100" max="{{rmb}}" {{#if applying}}disabled{{else}}required{{/if}} />
+          <input type="number" name="apply" step="100" value="{{d100 rmb}}" class="form-control" min="100" max="{{rmb}}" {{#if applying}}disabled{{else}}required{{/if}} {{#if whole_info}}required{{else}}disabled{{/if}} />
           <span class="input-group-addon">元，税后可得&yen;<strong class="text-danger">{{d100 after_tax}}</strong>元</span>
         </div>
         <a href="page/popup/tax-info.md" class="popup" title="计税规则" data-cancel="关闭">计税规则</a>
@@ -58,7 +58,7 @@
     <tr>
       <td></td>
       <td>
-        <button class="btn btn-primary btn-lg" {{#if applying}}disabled{{else if whole_info}}disabled{{/if}}>提交</button>
+        <button class="btn btn-primary btn-lg" {{#if applying}}disabled{{/if}} {{#unless whole_info}}disabled{{/unless}}>提交</button>
         <a href="#/my/profile/" class="ml2e fa fa-edit">修改个人信息</a>
       </td>
     </tr>
